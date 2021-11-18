@@ -1,5 +1,5 @@
 defmodule ApiHeavyProcessing do
-  alias ApiHeavyProcessing.{Employee, Parser}
+  alias ApiHeavyProcessing.{Area, Employee, Parser}
 
   def call_employee(filename) do
     filename
@@ -7,7 +7,9 @@ defmodule ApiHeavyProcessing do
     |> Employee.call()
   end
 
-  # defp area(%{"areas" => areas}) do
-  #   List.first(areas)
-  # end
+  def call_area(filename) do
+    filename
+    |> Parser.get_json()
+    |> Area.call()
+  end
 end
